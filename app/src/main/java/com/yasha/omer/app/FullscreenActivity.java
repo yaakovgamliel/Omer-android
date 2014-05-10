@@ -3,6 +3,7 @@ package com.yasha.omer.app;
 import com.yasha.omer.app.util.SystemUiHider;
 
 import android.annotation.TargetApi;
+import android.app.ActionBar;
 import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
@@ -176,6 +177,9 @@ public class FullscreenActivity extends Activity {
     }
 
     private void setupUIElements() {
+
+        ActionBar actionBar = getActionBar();
+        actionBar.hide();
 
         omerCountText = (TextView)findViewById(R.id.omer_count);
         hebrewDayText = (TextView)findViewById(R.id.hebrew_date);
