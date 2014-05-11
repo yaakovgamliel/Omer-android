@@ -31,13 +31,19 @@ public class OmerExtention extends DashClockExtension {
 
         updateTextLabels();
 
+//        publishUpdate(new ExtensionData()
+//                .visible(true)
+//                .icon(R.drawable.ic_widget)
+//                .status(mShortMessage)
+//                .expandedTitle(mTitleMessage)
+//                .expandedBody(mOmerCurrentCount)
+//                .clickIntent(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.com"))));
         publishUpdate(new ExtensionData()
                 .visible(true)
                 .icon(R.drawable.ic_widget)
                 .status(mShortMessage)
                 .expandedTitle(mTitleMessage)
-                .expandedBody(mOmerCurrentCount)
-                .clickIntent(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.com"))));
+                .expandedBody(mOmerCurrentCount));
 
     }
 
