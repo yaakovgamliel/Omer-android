@@ -100,9 +100,20 @@ public class OmerExtention extends DashClockExtension {
             int weeks = omerDay / 7;
             int days = omerDay % 7;
 
-            String formatedString = String.format("%d weeks and %d days",weeks,days);
 
-            String titleMessage = String.format("The Omer is %d",omerDay);
+            String formatedString;
+            String titleMessage;
+
+            if (omerDay == 33) {
+
+                formatedString = String.format("%d weeks and %d days",weeks,days);
+                titleMessage = String.format("Today is Lag b'Omer (%d)",omerDay);
+
+            } else {
+
+                formatedString = String.format("%d weeks and %d days",weeks,days);
+                titleMessage = String.format("The Omer is %d",omerDay);
+            }
 
             String shortMsg = String.format("%d Omer",omerDay);
             mShortMessage = shortMsg;
