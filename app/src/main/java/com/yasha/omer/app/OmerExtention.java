@@ -77,18 +77,40 @@ public class OmerExtention extends DashClockExtension {
             int weeks = omerDay / 7;
             int days = omerDay % 7;
 
-            String formatedString = String.format("%d weeks and %d days",weeks,days);
+            String formatedString;// = String.format("%d weeks and %d days",weeks,days);
 
-            String titleMessage = String.format("The Omer is %d",omerDay);
+            String titleMessage;// = String.format("The Omer is %d",omerDay);
 
             String shortMsg = String.format("%d Omer",omerDay);
             mShortMessage = shortMsg;
+
+            if (omerDay == 33) {
+
+                formatedString = String.format("%d weeks and %d days",weeks,days);
+                titleMessage = String.format("Today is Lag b'Omer (%d)",omerDay);
+
+            } else if (omerDay < 0 ){
+
+                // After 49 the lib returns -1 for non-sfirah days
+
+                formatedString = "";
+                titleMessage = "See you next Sfirat Ha'Omer!";
+
+            } else  {
+
+                formatedString = String.format("%d weeks and %d days",weeks,days);
+                titleMessage = String.format("The Omer is %d",omerDay);
+
+            }
 
             mTitleMessage = titleMessage;
             mOmerCurrentCount = formatedString;
 
 
+
+
         } else {
+
             JewishCalendar jd = new JewishCalendar();
 
             int omerDay = jd.getDayOfOmer();
@@ -109,10 +131,18 @@ public class OmerExtention extends DashClockExtension {
                 formatedString = String.format("%d weeks and %d days",weeks,days);
                 titleMessage = String.format("Today is Lag b'Omer (%d)",omerDay);
 
-            } else {
+            } else if (omerDay < 0 ){
+
+                // After 49 the lib returns -1 for non-sfirah days
+
+                formatedString = "";
+                titleMessage = "See you next Sfirat Ha'Omer!";
+
+            } else  {
 
                 formatedString = String.format("%d weeks and %d days",weeks,days);
                 titleMessage = String.format("The Omer is %d",omerDay);
+
             }
 
             String shortMsg = String.format("%d Omer",omerDay);

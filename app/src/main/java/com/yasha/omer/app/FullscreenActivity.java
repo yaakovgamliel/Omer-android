@@ -225,6 +225,13 @@ public class FullscreenActivity extends Activity {
             omerCountText.setText(Integer.toString(omerDay));
             weekDayText.setText(formatedString);
 
+            // After 49 the lib returns -1 for non-sfirah days
+
+            if (omerDay == -1) {
+                omerCountText.setText("!");
+                weekDayText.setText("See you again next Sfirat Ha'Omer!");
+            }
+
         } else {
             JewishCalendar jd = new JewishCalendar();
 
@@ -242,6 +249,13 @@ public class FullscreenActivity extends Activity {
             hebrewDayText.setText(omerDateFormatter.format(jd));
             omerCountText.setText(Integer.toString(omerDay));
             weekDayText.setText(formatedString);
+
+            // After 49 the lib returns -1 for non-sfirah days
+
+            if (omerDay == -1) {
+                omerCountText.setText("!");
+                weekDayText.setText("See you again next Sfirat Ha'Omer!");
+            }
         }
 
 
